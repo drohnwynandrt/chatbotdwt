@@ -62,7 +62,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
-
 		if(strtolower($userMessage) == 'Hallo Chatbot')
 		{
 			$message = "Hoe ken jij mijn naam stalker?";
