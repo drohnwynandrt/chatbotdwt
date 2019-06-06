@@ -122,7 +122,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		}
 	}
-	if(strtolower($userMessage) == 'showmeyourteeth')
+	if(strtolower($userMessage) == 'smile')
 	{
 		$message = "I'm happy! \xF0\x9F\x98\x81" ;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
