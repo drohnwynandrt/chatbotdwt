@@ -108,6 +108,11 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+
+			$message = "Vertel het me!";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
 		if(stripos($userMessage, "open") !== false)
