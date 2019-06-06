@@ -102,7 +102,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-		if(stripos($userMessage, "hallo chatbot") !== false)
+		for(stripos($userMessage, "hallo chatbot") !== false)
 		{
 			$message = "Hoe ken jij mijn naam stalker?";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
@@ -133,14 +133,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$receiversIds=[$senderUserId, 'U45ee1ee091ea49700b5f2491a6c09fcc'];
 			$result = $bot->multicast($receiversIds, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
-		
 		}
-
-
-
 	}
-	
-
 });
 
 // $app->get('/push/{to}/{message}', function ($request, $response, $args)
