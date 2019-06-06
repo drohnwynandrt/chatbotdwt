@@ -1,4 +1,6 @@
 <?php
+$url = 'chatbotdwt.json';
+$datajson=file_get_contents($url);
 
 require '../vendor/autoload.php';
 
