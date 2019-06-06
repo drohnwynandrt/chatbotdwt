@@ -102,7 +102,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-		if(stripos($userMessage) == 'hallo chatbot')
+		if(stripos($userMessage, "hallo chatbot") !== false)
 		{
 			$message = "Hoe ken jij mijn naam stalker?";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
