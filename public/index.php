@@ -122,9 +122,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		}
 	}
-	if(strtolower($userMessage) == 	"\xF0\x9F\x98\x81")
+	if(strtolower($userMessage) == 'smile')
 	{
-		$message = "Kun je vanmiddag om 15:00 ?";
+		$message = "I'm happy! \xF0\x9F\x98\x81" ;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
