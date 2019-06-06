@@ -122,7 +122,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$result = $bot->multicast($receiversIds, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		}
-	}
+
 	if(strtolower($userMessage) == 'smile')
 	{
 		$message = "I'm happy! \xF0\x9F\x98\x81" ;
@@ -143,7 +143,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	
 	}
-
+}
 });
 
 // $app->get('/push/{to}/{message}', function ($request, $response, $args)
