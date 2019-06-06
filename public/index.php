@@ -91,6 +91,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
+		
+		if(strtolower($userMessage) == 'wie ben jij?')
+		{
+	
+            $myimage = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder( "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBMYkESnxGma0tuuNwLzjjy5yVuDiXJ9JILoo1bvUY_ZDcxy9q8w" , "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBMYkESnxGma0tuuNwLzjjy5yVuDiXJ9JILoo1bvUY_ZDcxy9q8w" , LINE\LINEBot\QuickReplyBuilder $quickReply = NULL );
+			$result = $bot->replyMessage($event['replyToken'], $myimage);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+		}
+
 
 
 
