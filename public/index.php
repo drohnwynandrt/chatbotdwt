@@ -135,8 +135,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$dataschedule=json_decode($datajson);
-		$message = $dataschedule;
+		$schedule=json_decode($dataschedule);
+		$message = $schedule;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
