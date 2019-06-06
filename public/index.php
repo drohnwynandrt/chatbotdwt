@@ -115,7 +115,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		{
 			$message = $senderUserId;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-			$result = $bot->replyMessage($event[$senderUserId], $textMessageBuilder);
+			$result = $bot->replyMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
