@@ -120,6 +120,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
+		if(stripos($userMessage, "userid") !== false)
+
+		{
+			$message = <profile class="userID"></profile>;
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+		}
+
 
 
 	}
