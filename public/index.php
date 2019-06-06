@@ -105,7 +105,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		if(stripos($userMessage, "open") !== false)
 
 		{
-			$message = "\xF0\x9F\x98\x81 smiley";
+			$message = "Wij zijn geopend op Maandag-Vrijdag van 9.00 tot 17.00. Op zaterdag zijn wij open van 10.00 tot 15.00. Zondag zijn wij gesloten.";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
@@ -122,6 +122,15 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		}
 	}
+	if(strtolower($userMessage) == 	"\xF0\x9F\x98\x81")
+	{
+		$message = "Kun je vanmiddag om 15:00 ?";
+		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+	
+	}
+
 });
 
 // $app->get('/push/{to}/{message}', function ($request, $response, $args)
