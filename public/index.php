@@ -35,7 +35,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if($_ENV['PASS_SIGNATURE'] == false && ! SignatureValidator::validateSignature($body, $_ENV['CHANNEL_SECRET'], $signature)){
 		return $response->withStatus(400, 'Invalid signature');
 	}
-
 	// init bot
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
@@ -43,6 +42,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	foreach ($data['events'] as $event)
 	{
 		$userMessage = $event['message']['text'];
+		$senderUserID = $event['source']['userID'];
 		if(strtolower($userMessage) == 'hallo')
 		{
 			$message = "Hallo Gorilla";
@@ -114,16 +114,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 		{
 			$message = "Wij zijn geopend op Maandag-Vrijdag van 9.00 tot 17.00. Op zaterdag zijn wij open van 10.00 tot 15.00. Zondag zijn wij gesloten.";
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
-			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
-		
-		}
-
-		if(stripos($userMessage, "userid") !== false)
-
-		{
-			$message = <profile class="userID"></profile>;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
