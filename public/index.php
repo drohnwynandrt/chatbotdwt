@@ -42,7 +42,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	foreach ($data['events'] as $event)
 	{
 		$userMessage = $event['message']['text'];
-		$senderUserID = $event['source']['userId'];
+		$senderUserId = $event['source']['userId'];
 		if(strtolower($userMessage) == 'hallo')
 		{
 			$message = "Hallo Gorilla";
@@ -113,9 +113,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		if(stripos($userMessage, "open") !== false)
 
 		{
-			$message = $senderUserID;
+			$message = $senderUserId;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+			$result = $bot->replyMessage($event[$senderUserId], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
