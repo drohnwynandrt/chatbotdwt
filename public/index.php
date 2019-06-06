@@ -42,7 +42,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	foreach ($data['events'] as $event)
 	{
 		$userMessage = $event['message']['text'];
-		$senderUserID = $event['source']['userID'];
+		$senderUserID = $event['source']['userId'];
 		if(strtolower($userMessage) == 'hallo')
 		{
 			$message = "Hallo Gorilla";
