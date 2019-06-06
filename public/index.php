@@ -1,6 +1,5 @@
 <?php
-$url = 'chatbotdwt.json';
-$datajson=file_get_contents($url);
+
 
 require '../vendor/autoload.php';
 
@@ -135,6 +134,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
+		$url = 'chatbotdwt.json';
+		$datajson=file_get_contents($url);
 		$schedule=json_decode($dataschedule);
 		$message = $schedule;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
