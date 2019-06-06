@@ -82,6 +82,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
+		if(strtolower($userMessage) == 'ik hou van jou')
+		{
+	
+            $mysticker = new \LINE\LINEBot\MessageBuilder\StickerMessageBuilder("11538", "51626495");
+			$result = $bot->replyMessage($event['replyToken'], $mysticker);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+		}
+
+
 
 
 
