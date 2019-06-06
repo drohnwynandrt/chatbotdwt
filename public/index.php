@@ -113,9 +113,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		if(stripos($userMessage, "open") !== false)
 
 		{
-			$message = "Wij zijn geopend op Maandag-Vrijdag van 9.00 tot 17.00. Op zaterdag zijn wij open van 10.00 tot 15.00. Zondag zijn wij gesloten.";
+			$message = $senderUserID;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-			$result = $bot->replyMessage($senderUserID, $textMessageBuilder);
+			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
 		}
