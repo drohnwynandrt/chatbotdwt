@@ -105,7 +105,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		if(stripos($userMessage, "open") !== false)
 
 		{
-			$message = $senderUserId;
+			$message = "u'\U000026C4'";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
