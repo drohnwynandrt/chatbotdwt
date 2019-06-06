@@ -103,7 +103,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 
 		if(stripos($userMessage, "hallo chatbot") !== false)
-		// stripos case insensitive , strpos case sensitive
 		{
 			$message = "Hoe ken jij mijn naam stalker?";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
