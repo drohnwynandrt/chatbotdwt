@@ -120,6 +120,17 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
+		if(stripos($userMessage, "multi") !== false)
+
+		{
+			$message = $senderUserId;
+			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$receiversIds=[$senderUserId, 'U45ee1ee091ea49700b5f2491a6c09fcc'];
+			$result = $bot->multicast($receiversIds, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+		}
+
 
 
 	}
