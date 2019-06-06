@@ -106,7 +106,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		{
 			$message1 = "Hoe ken jij mijn naam stalker?";
 			$message2= "Vertel het me!";
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message1, $messagge2);
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message1, $message2);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
