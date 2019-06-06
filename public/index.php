@@ -102,17 +102,18 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-		for(stripos($userMessage, "hallo chatbot") !== false)
+		if(stripos($userMessage, "hallo chatbot") !== false)
 		{
 			$message = "Hoe ken jij mijn naam stalker?";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
-			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();}
+		{
 
 			$message = "Vertel het me!";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
-			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();}
 		
 		}
 		if(stripos($userMessage, "open") !== false)
