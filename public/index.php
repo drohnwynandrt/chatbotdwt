@@ -135,7 +135,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'schedule')
 	{
 		$datajson=file_get_contents("chatbotdwt.json");
-		$myanswer=json_decode($datajson->{'$dataschedule'});
+		echo $datajson;
+		$myanswer=json_decode($dataschedule);
 		$message = $myanswer->{'faa-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
