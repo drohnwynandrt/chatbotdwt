@@ -146,7 +146,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'obj')
 	{	$json = '{"foo-bar":12345}';
 		$obj=json_decode($json);
-		$message = $obj;
+		$message = $obj->{'foo-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
