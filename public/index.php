@@ -134,7 +134,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$datajson = file_get_contents('chatbotdwt.json');
+		$datajson = file_get_contents('voorbeeld.php');
 		echo $datajson;
 		$myanswer=json_decode($dataschedule);
 		$message = $myanswer->{'faa-bar'};
