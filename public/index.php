@@ -134,8 +134,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$datajson = file_get_contents('voorbeeld.php');
+		$datajson = file_get_contents('chatbotdwt.json');
 		echo $datajson;
+		echo $dataschedule;
 		$myanswer=json_decode($dataschedule);
 		$message = $myanswer->{'faa-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
