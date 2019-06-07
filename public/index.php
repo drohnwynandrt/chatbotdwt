@@ -135,7 +135,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'schedule')
 	{
 		$datajson = file_get_contents('chatbotdwt.json');
-		$message = $datajson;
+		$myanswer=json_decode($datajson);
+		$message = $myanswer;
 		$CarouselTemplateBuilder = new \LINE\LINEBot\TemplateBuilder\CarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $CarouselTemplateBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
