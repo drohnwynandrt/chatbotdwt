@@ -134,7 +134,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$dataschedule ='{
+		$dataschedule ={
 			"type": "template",
 			"altText": "this is a carousel template",
 			"template": {
@@ -159,7 +159,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 				}
 			  ]
 			}
-		  }';
+		  };
 		$message = json_decode($dataschedule);
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
