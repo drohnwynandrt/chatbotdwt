@@ -160,7 +160,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			  ]
 			}
 		  }';
-		$message = $dataschedule;
+		$message = json_decode($dataschedule);
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
