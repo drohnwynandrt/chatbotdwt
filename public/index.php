@@ -134,41 +134,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$dataschedule ='{
-			"type": template,
-			"altText": this is a carousel template,
-			"template": {
-			  "type": carousel,
-			  "actions": [],
-			  "columns": [
-				{
-				  "thumbnailImageUrl": https://www.bostonmagazine.com/wp-content/uploads/sites/2/2018/10/massage-boston-1.jpg,
-				  "title": Massage,
-				  "text": Do you want to schedule a massage?,
-				  "actions": [
-					{
-					  "type": datetimepicker,
-					  "label": Schedule,
-					  "data": Date,
-					  "mode": datetime,
-					  "initial": 2019-06-06T15:32,
-					  "max": 2019-12-31T15:32,
-					  "min": 2018-06-06T15:32
-					}
-				  ]
-				}
-			  ]
-			}
-		  }';
-		  $myanwer=json_decode($dataschedule)
-		$message = $myanswer;
+		$datajson=file_get_contents("chatbotdwt.json");
+		$myanswer=json_decode($dataschedule);
+		$message = $dataschedule->{'faa-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	
 	}
 	if(strtolower($userMessage) == 'obj')
-	{	$json = '{"foo-bar":12345}';
+	{	$json = '{"foo-bar":123}';
 		$obj=json_decode($json);
 		$message = $obj->{'foo-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
