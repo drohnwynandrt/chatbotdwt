@@ -135,7 +135,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'schedule')
 	{
 		$datajson = file_get_contents('chatbotdwt.json');
-		$message = json_decode($datajson);
+		$message = json_encode($datajson);
 		$CarouselTemplateBuilder = new \LINE\LINEBot\MessageBuilder\CarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $CarouselTemplateBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
@@ -143,7 +143,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	}
 	if(strtolower($userMessage) == 'obj')
 	{	$json = '{"foo-bar":123}';
-		$obj=json_encode($json);
+		$obj=json_decode($json);
 		$message = $obj->{'foo-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
