@@ -143,7 +143,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	}
 	if(strtolower($userMessage) == 'obj')
 	{	$json = '{"foo-bar":123}';
-		$obj=json_decode($json);
+		$obj=json_encode($json);
 		$message = $obj->{'foo-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
