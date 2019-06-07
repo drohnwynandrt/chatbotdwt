@@ -136,8 +136,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	{
 		$datajson = file_get_contents('chatbotdwt.json');
 		$message = $datajson;
-		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\QuickReplyBuilder($message);
-		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+		$TemplateBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder($message);
+		$result = $bot->replyMessage($event['replyToken'], $TemplateBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	
 	}
