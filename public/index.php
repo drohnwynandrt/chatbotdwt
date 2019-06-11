@@ -157,12 +157,36 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	}	
 
 	if(strtolower($userMessage) == 'template')
-
 	{
-		$data=file_get_contents('scndchatbotdwt.json');
+		$data={
+			"type": "template",
+			"altText": "this is a carousel template",
+			"template": {
+			  "type": "carousel",
+			  "actions": [],
+			  "columns": [
+				{
+				  "thumbnailImageUrl": "https://www.bostonmagazine.com/wp-content/uploads/sites/2/2018/10/massage-boston-1.jpg",
+				  "title": "Massage",
+				  "text": "Do you want to schedule a massage?",
+				  "actions": [
+					{
+					  "type": "datetimepicker",
+					  "label": "Schedule",
+					  "data": "Date",
+					  "mode": "datetime",
+					  "initial": "2019-06-06T15:32",
+					  "max": "2019-12-31T15:32",
+					  "min": "2018-06-06T15:32"
+					}
+				  ]
+				}
+			  ]
+			}
+		  };
 
 		$message=$data;
-		$mytemplate = new LINE\LINEBot\MessageBuilder\ImageCarouselTemplateBuilder($message);
+		$mytemplate = new LINE\LINEBot\MessageBuilder\FlexMesssageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
