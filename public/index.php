@@ -170,7 +170,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	}
 	if(strtolower($userMessage) == 'obj')
 	{	$json = file_get_contents('chatbotdwt.json');
-		$message = $json;
+		$externalreply=json_decode($json);
+		$message = $externalreply;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
