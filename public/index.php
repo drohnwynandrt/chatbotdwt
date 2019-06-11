@@ -161,7 +161,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			  ]
 			}
 		  }';
-		$myanswer= json_decode($datajsonn);
+		$myanswer= json_encode($datajsonn);
 		$message = $myanswer;
 		$CarouselTemplateBuilder = new LINE\LINEBot\MessageBuilder\TemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $CarouselTemplateBuilder);
