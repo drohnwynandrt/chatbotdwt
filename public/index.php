@@ -134,7 +134,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'schedule')
 	{
-		$datajson = file_get_contents('chatbotdwt.json');
 		$datajsonn={
 			"type": "template",
 			"altText": "this is a carousel template",
@@ -169,8 +168,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	
 	}
 	if(strtolower($userMessage) == 'obj')
-	{	$json = file_get_contents('chatbotdwt.json');
-		$externalreply=json_decode($json);
+	{	$externalreply=file_get_contents('chatbotdwt.json');
 		$message = $externalreply;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
