@@ -159,7 +159,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'template')
 
 	{
-		$message ={
+		$message =json_decode({
 			"type": "template",
 			"altText": "this is a carousel template",
 			"template": {
@@ -184,7 +184,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 				}
 			  ]
 			}
-		  };
+		  });
 		$mytemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
 		$result = $bot->pushmessage($senderUserId, $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
