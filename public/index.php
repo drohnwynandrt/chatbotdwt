@@ -162,7 +162,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			}
 		  };
 		$myanswer= json_decode($datajsonn);
-		$message = $myanswer;
+		$message = $datajsonn;
 		$CarouselTemplateBuilder = new LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $CarouselTemplateBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
