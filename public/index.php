@@ -156,6 +156,40 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
 
+	if(strtolower($userMessage) == 'template')
+
+	{
+		$message ={
+			"type": "template",
+			"altText": "this is a carousel template",
+			"template": {
+			  "type": "carousel",
+			  "actions": [],
+			  "columns": [
+				{
+				  "thumbnailImageUrl": "https://www.bostonmagazine.com/wp-content/uploads/sites/2/2018/10/massage-boston-1.jpg",
+				  "title": "Massage",
+				  "text": "Do you want to schedule a massage?",
+				  "actions": [
+					{
+					  "type": "datetimepicker",
+					  "label": "Schedule",
+					  "data": "Date",
+					  "mode": "datetime",
+					  "initial": "2019-06-06T15:32",
+					  "max": "2019-12-31T15:32",
+					  "min": "2018-06-06T15:32"
+					}
+				  ]
+				}
+			  ]
+			}
+		  };
+		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
+		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+	}	
+
 	
 
 }
