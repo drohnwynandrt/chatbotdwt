@@ -162,7 +162,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		$data=file_get_contents('scndchatbotdwt.json');
 
 		$message=$data;
-		$mytemplate = new LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder($message);
+		$mytemplate = new LINE\LINEBot\MessageBuilder\ImageCarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
