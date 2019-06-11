@@ -145,10 +145,16 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'scndext')
 
 	{	
-		$exturl='scndchatbotdwt.json';
-		$scndext=file_get_contents($exturl);
-		$scndextanswer=json_decode($scndext);
-		$message = $scndextanswer[0]->name;
+	//	$exturl='scndchatbotdwt.json';
+	//	$scndext=file_get_contents($exturl);
+	//	$scndextanswer=json_decode($scndext);
+
+		$data = '{
+			"name": "Drohn",
+			"race": "Human"
+		}';
+
+		$message = json_decode($data)->name;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
