@@ -1,10 +1,10 @@
 ;[
     {
-        "name":"Drohn",
-        "age":"28",
+        'name':'Drohn',
+        'age':'28',
     },
     {
-        "name":"Adam",
-        "age":"35",
+        'name':'Adam',
+        'age':'35',
     },
      ]
