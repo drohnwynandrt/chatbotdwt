@@ -140,9 +140,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	
-	}
+	}	
 
 	
+
 }
 });
 
