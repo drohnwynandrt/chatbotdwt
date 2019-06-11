@@ -145,10 +145,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'arrdata')
 
 	{	
-		$data = '{
+		$data = {
 			"name": "Drohn",
 			"race": "Human"
-		}';
+		};
 
 		$message = $data;
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
