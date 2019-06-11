@@ -1,4 +1,7 @@
-{
+'{"foo-bar":123}';
+
+/*
+
   "type": "template",
   "altText": "this is a carousel template",
   "template": {
@@ -24,3 +27,4 @@
     ]
   }
 }
+*/{

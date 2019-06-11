@@ -169,7 +169,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	
 	}
 	if(strtolower($userMessage) == 'obj')
-	{	$json = '{"foo-bar":123}';
+	{	$json = file_get_contents('chatbotdwt.json');
 		$obj=json_decode($json);
 		$message = $obj->{'foo-bar'};
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
