@@ -185,8 +185,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			  ]
 			}
 		  };
-		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
-		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+		$mytemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
+		$result = $bot->pushmessage($senderUserId, $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
 
