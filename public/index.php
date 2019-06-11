@@ -159,8 +159,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'template')
 
 	{
-		
-		$message=file_get_contents('scndchatbotdwt.json');
+		$data=file_get_contents('scndchatbotdwt.json');
+
+		$message=json_decode($data);
 		$mytemplate = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
