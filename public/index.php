@@ -162,26 +162,67 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			"type": "template",
 			"altText": "this is a carousel template",
 			"template": {
-			  "type": "carousel",
-			  "actions": [],
-			  "columns": [
-				{
-				  "thumbnailImageUrl": "https://www.bostonmagazine.com/wp-content/uploads/sites/2/2018/10/massage-boston-1.jpg",
-				  "title": "Massage",
-				  "text": "Do you want to schedule a massage?",
-				  "actions": [
+				"type": "carousel",
+				"columns": [
 					{
-					  "type": "datetimepicker",
-					  "label": "Schedule",
-					  "data": "Date",
-					  "mode": "datetime",
-					  "initial": "2019-06-06T15:32",
-					  "max": "2019-12-31T15:32",
-					  "min": "2018-06-06T15:32"
+					  "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+					  "imageBackgroundColor": "#FFFFFF",
+					  "title": "this is menu",
+					  "text": "description",
+					  "defaultAction": {
+						  "type": "uri",
+						  "label": "View detail",
+						  "uri": "http://example.com/page/123"
+					  },
+					  "actions": [
+						  {
+							  "type": "postback",
+							  "label": "Buy",
+							  "data": "action=buy&itemid=111"
+						  },
+						  {
+							  "type": "postback",
+							  "label": "Add to cart",
+							  "data": "action=add&itemid=111"
+						  },
+						  {
+							  "type": "uri",
+							  "label": "View detail",
+							  "uri": "http://example.com/page/111"
+						  }
+					  ]
+					},
+					{
+					  "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+					  "imageBackgroundColor": "#000000",
+					  "title": "this is menu",
+					  "text": "description",
+					  "defaultAction": {
+						  "type": "uri",
+						  "label": "View detail",
+						  "uri": "http://example.com/page/222"
+					  },
+					  "actions": [
+						  {
+							  "type": "postback",
+							  "label": "Buy",
+							  "data": "action=buy&itemid=222"
+						  },
+						  {
+							  "type": "postback",
+							  "label": "Add to cart",
+							  "data": "action=add&itemid=222"
+						  },
+						  {
+							  "type": "uri",
+							  "label": "View detail",
+							  "uri": "http://example.com/page/222"
+						  }
+					  ]
 					}
-				  ]
-				}
-			  ]
+				],
+				"imageAspectRatio": "rectangle",
+				"imageSize": "cover"
 			}
 		  };
 
