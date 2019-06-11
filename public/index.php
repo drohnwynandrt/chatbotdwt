@@ -144,7 +144,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	if(strtolower($userMessage) == 'scndext')
 
-	{	$scndext=file_get_contents('scndchatbotdwt.json');
+	{	
+		$scndext=file_get_contents('scndchatbotdwt.json');
 		$scndextanswer=json_decode($scndext);
 		$message = $scndextanswer->'{"foo-bar"}';
 		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
