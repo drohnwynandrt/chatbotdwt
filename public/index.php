@@ -325,7 +325,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	{	$externalreply=file_get_contents('scndchatbotdwt.json');
 		$message = $externalreply;
-		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;($message);
 		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	
