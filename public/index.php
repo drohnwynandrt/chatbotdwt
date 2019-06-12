@@ -326,7 +326,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	{	
 
-		$message = {
+		$message ='{
     "type": "template",
     "altText": "this is a carousel template",
     "template": {
@@ -392,7 +392,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         "imageAspectRatio": "rectangle",
         "imageSize": "cover"
     }
-  };
+  }';
 		$tMB = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $tMB);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
