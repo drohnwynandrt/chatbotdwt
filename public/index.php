@@ -157,7 +157,6 @@ class FlexSampleRestaurant
 }
 
 
-
 // initiate app
 $configs =  [
 	'settings' => ['displayErrorDetails' => true],
@@ -307,7 +306,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
 
-	if(strtolower($userMessage) == 'template')
+	if(strtolower($userMessage) == 'ok2')
 
 	{
 		$data = FlexSampleRestaurant::get();
