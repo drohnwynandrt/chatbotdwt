@@ -56,7 +56,6 @@ class ImageCarouselTemplateBuilder implements TemplateBuilder
 
         return $this->template;
     }
-}
 
 // initiate app
 $configs =  [
@@ -213,13 +212,13 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		$data=file_get_contents('scndchatbotdwt.json');
 
 		$message=json_decode($data);
-		$mytemplate = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder($message);
+		$mytemplate = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
 }
 });
-
+}
 // $app->get('/push/{to}/{message}', function ($request, $response, $args)
 // {
 // 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
