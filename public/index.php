@@ -316,7 +316,6 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	{
         class otherrest extends FlexSampleRestaurant{
-            return ImageComponentBuilder::builder()
             ->setUrl('https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg')
         }
 		$data = otherrest::get();
