@@ -38,11 +38,16 @@ use \LINE\LINEBot\SignatureValidator as SignatureValidator;
  */
 class FlexSampleRestaurant
 {
+
+ public $mainimage = 'https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg';
+
     /**
      * Create sample restaurant flex message
      *
      * @return \LINE\LINEBot\MessageBuilder\FlexMessageBuilder
      */
+
+
     public static function get()
     {
         return FlexMessageBuilder::builder()
@@ -57,7 +62,7 @@ class FlexSampleRestaurant
     private static function createHeroBlock()
     {
         return ImageComponentBuilder::builder()
-            ->setUrl('https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg')
+            ->setUrl($mainimage)
             ->setSize(ComponentImageSize::FULL)
             ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
             ->setAspectMode(ComponentImageAspectMode::COVER)
@@ -316,7 +321,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	{
         class otherrest extends FlexSampleRestaurant{
-
+            
         }
 		$data = otherrest::get();
 		file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
