@@ -315,9 +315,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'ok2')
 
 	{
-        
-        $otherrest = new FlexSampleRestaurant::get();
-		$message = $otherrest;
+        class otherrest extends FlexSampleRestaurant{
+            //otherrest->setURL = ('https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg');
+        }
+		$data = otherrest::get();
 		file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
 		  $result = $bot->replyMessage($event['replyToken'], $data);
 		  //return $response->withJson($result->getJSONDecodedBody(), $result->getHTTPStatus());
