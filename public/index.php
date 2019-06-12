@@ -156,7 +156,6 @@ class FlexSampleRestaurant
     }
 }
 
-use \LINE\LINEBot\SignatureValidator as SignatureValidator;
 
 
 // initiate app
