@@ -5,7 +5,58 @@ require '../vendor/autoload.php';
 
 
 use \LINE\LINEBot\SignatureValidator as SignatureValidator;
+namespace LINE\LINEBot\MessageBuilder\TemplateBuilder;
 
+use LINE\LINEBot\Constant\TemplateType;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder;
+
+/**
+ * A builder class for image carousel template.
+ *
+ * @package LINE\LINEBot\MessageBuilder\TemplateBuilder
+ */
+class ImageCarouselTemplateBuilder implements TemplateBuilder
+{
+    /** @var ImageCarouselColumnTemplateBuilder[] */
+    private $columnTemplateBuilders;
+
+    /** @var array */
+    private $template;
+
+    /**
+     * ImageCarouselTemplateBuilder constructor.
+     *
+     * @param ImageCarouselColumnTemplateBuilder[] $columnTemplateBuilders
+     */
+    public function __construct(array $columnTemplateBuilders)
+    {
+        $this->columnTemplateBuilders = $columnTemplateBuilders;
+    }
+
+    /**
+     * Builds image carousel template structure.
+     *
+     * @return array
+     */
+    public function buildTemplate()
+    {
+        if (!empty($this->template)) {
+            return $this->template;
+        }
+
+        $columns = [];
+        foreach ($this->columnTemplateBuilders as $columnTemplateBuilder) {
+            $columns[] = $columnTemplateBuilder->buildTemplate();
+        }
+
+        $this->template = [
+            'type' => TemplateType::IMAGE_CAROUSEL,
+            'columns' => $columns,
+        ];
+
+        return $this->template;
+    }
+}
 
 // initiate app
 $configs =  [
@@ -161,8 +212,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	{
 		$data=file_get_contents('scndchatbotdwt.json');
 
-		$message=$data;
-		$mytemplate = new LINE\LINEBot\MessageBuilder\TemplateBuilder($message);
+		$message=json_decode($data);
+		$mytemplate = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder($message);
 		$result = $bot->replyMessage($event['replyToken'], $mytemplate);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}	
