@@ -25,6 +25,12 @@ use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ImageComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\SpacerComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\TextComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\BubbleContainerBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use LINE\LINEBot\MessageBuilder\Flex\ContainerBuilder\CarouselContainerBuilder;
+use LINE\LINEBot\TemplateActionBuilder;
+
 use \LINE\LINEBot\SignatureValidator as SignatureValidator;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -315,7 +321,15 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		  return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	  
 	}	
+	if(strtolower($userMessage) == 'anothertemp')
 
+	{	$externalreply=file_get_contents('scndchatbotdwt.json');
+		$message = $externalreply;
+		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+	
+	}	
 
 
 }
