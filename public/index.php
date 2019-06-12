@@ -315,8 +315,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	if(strtolower($userMessage) == 'ok2')
 
 	{
-        FlexSampleRestaurant::get();
-        $otherrest = new FlexSampleRestaurant;
+        
+        $otherrest = new FlexSampleRestaurant::get();
 		$message = $otherrest;
 		file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
 		  $result = $bot->replyMessage($event['replyToken'], $data);
