@@ -156,7 +156,6 @@ class FlexSampleRestaurant
     }
 }
 
-
 // initiate app
 $configs =  [
 	'settings' => ['displayErrorDetails' => true],
