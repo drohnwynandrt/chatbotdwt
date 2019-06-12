@@ -316,7 +316,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	{
         class otherrest extends FlexSampleRestaurant{
-            ->setUrl('https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg')
+            ->otherrest->setURL = ('https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg');
         }
 		$data = otherrest::get();
 		file_put_contents('php://stderr', 'reply data: ' . print_r($data, true));
