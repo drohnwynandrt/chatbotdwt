@@ -59,7 +59,7 @@ class FlexSampleRestaurant
     }
     private static function createHeroBlock()
     {
-        public $mainimage = 'https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg';
+        $mainimage = 'https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg';
         return ImageComponentBuilder::builder()
             ->setUrl($mainimage)
             ->setSize(ComponentImageSize::FULL)
