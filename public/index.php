@@ -333,7 +333,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
     if(strtolower($userMessage) == 'builder')
 
 	{	
-		$data = TemplateBuilder::builder({
+		$data = ImageCarouselTemplateBuilder::builder({
             "type": "template",
             "altText": "this is a carousel template",
             "template": {
@@ -403,7 +403,8 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         )
 
 		$message = $data;
-		$result = $bot->replyMessage($event['replyToken'], $message);
+		$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ImageCarouselTemplateBuilder;($message);
+		$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
 		return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 	}
 
