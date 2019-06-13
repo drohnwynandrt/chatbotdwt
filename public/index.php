@@ -333,7 +333,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
     if(strtolower($userMessage) == 'builder')
 
 	{	
-		$data = ImageCarouselTemplateBuilder::builder({
+		$data = ImageCarouselTemplateBuilder::builder('{
             "type": "template",
             "altText": "this is a carousel template",
             "template": {
@@ -399,7 +399,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
                 "imageAspectRatio": "rectangle",
                 "imageSize": "cover"
             }
-          }
+          }'
         )
 
 		$message = $data;
