@@ -52,27 +52,27 @@ class FlexSampleRestaurant
             ->setAltText('Restaurant')
             ->setContents(
                 BubbleContainerBuilder::builder()
-                    ->setHero(self::createHeroBlock())
+//                    ->setHero(self::createHeroBlock())
                     ->setBody(self::createBodyBlock())
                     ->setFooter(self::createFooterBlock())
             );
     }
-    private static function createHeroBlock()
-    {
-        $mainimage = 'https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg';
-        return ImageComponentBuilder::builder()
-            ->setUrl($mainimage)
-            ->setSize(ComponentImageSize::FULL)
-            ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
-            ->setAspectMode(ComponentImageAspectMode::COVER)
-            ->setAction(
-                new UriTemplateActionBuilder(
-                    null,
-                    'https://example.com',
-                    new AltUriBuilder('https://example.com#desktop')
-                )
-            );
-    }
+    // private static function createHeroBlock()
+    // {
+    //     $mainimage = 'https://www.amrathhotelempereur.nl/heading/restaurant_4.jpg';
+    //     return ImageComponentBuilder::builder()
+    //         ->setUrl($mainimage)
+    //         ->setSize(ComponentImageSize::FULL)
+    //         ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
+    //         ->setAspectMode(ComponentImageAspectMode::COVER)
+    //         ->setAction(
+    //             new UriTemplateActionBuilder(
+    //                 null,
+    //                 'https://example.com',
+    //                 new AltUriBuilder('https://example.com#desktop')
+    //             )
+    //         );
+    // }
     private static function createBodyBlock()
     {
         $title = TextComponentBuilder::builder()
