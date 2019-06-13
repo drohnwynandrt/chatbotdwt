@@ -330,6 +330,14 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	  
     }
     
+    if(strtolower($userMessage) == 'test')
+    {
+        $message = "TEST OK";
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+        $result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+    
+    }
 
 
 }
