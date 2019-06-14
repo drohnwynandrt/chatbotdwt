@@ -282,7 +282,18 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
-		}
+        }
+
+        else if (stripos($userMessage, "kost") !== false)
+
+        {
+			$message = "Haar: 20 Euro\nFacemask: 30 Euro\nMassage: 15 Euro";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+        }
+        
 
 		if(stripos($userMessage, "multi") !== false)
 
