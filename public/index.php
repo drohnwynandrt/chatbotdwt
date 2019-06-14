@@ -294,10 +294,10 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
         }
 
-        if(stripos($userMessage, "tarief") || (stripos($userMessage, "haar") !== false))
+        if(stripos($userMessage, "tarief") && ((stripos($userMessage, "haar")) !== false))
 
 		{
-			$message = "Haar: 20 Euro;
+			$message = "Haar: 20 ";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
