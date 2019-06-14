@@ -277,7 +277,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
         if(stripos($userMessage, "tarief") !== false)
 
 		{
-			$message = "Haar: 20 Euro"+<br />+"Facemask: 30 Euro"+<br />+"Massage: 15 Euro";
+			$message = "Haar: 20 Euro \n Facemask: 30 Euro \n Massage: 15 Euro";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
