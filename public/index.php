@@ -262,11 +262,22 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
-		}
+        }
+
 		if(stripos($userMessage, "open") !== false)
 
 		{
 			$message = "Wij zijn geopend op Maandag-Vrijdag van 9.00 tot 17.00. Op zaterdag zijn wij open van 10.00 tot 15.00. Zondag zijn wij gesloten.";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+        }
+        
+        if(stripos($userMessage, "tarief") !== false)
+
+		{
+			$message = "Haar: 20 Euro<br />Facemask: 30 Euro<br />Massage: 15 Euro";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
