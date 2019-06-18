@@ -284,6 +284,24 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
         }
 
+        else if((stripos($userMessage, "tarief")) !== false && (stripos($userMessage, "facemask")) !== false)
+
+		{
+			$message = "Facemask: 30 Euro ";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+        }
+        else if((stripos($userMessage, "tarief")) !== false && (stripos($userMessage, "massage")) !== false)
+
+		{
+			$message = "Massage: 15 Euro ";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		
+        }
         else if (stripos($userMessage, "tarief") !== false)
 
 		{
