@@ -284,15 +284,15 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
         }
 
-        // else (stripos($userMessage, "tarief") !== false)
+        else (stripos($userMessage, "tarief") !== false)
 
-		// {
-		// 	$message = "Haar: 20 Euro\nFacemask: 30 Euro\nMassage: 15 Euro";
-        //     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-		// 	$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
-		// 	return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		{
+			$message = "Haar: 20 Euro\nFacemask: 30 Euro\nMassage: 15 Euro";
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		
-        // }
+        }
 
         
 
