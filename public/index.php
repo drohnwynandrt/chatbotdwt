@@ -274,7 +274,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
         }
         
-        if(stripos($userMessage, "tarief") && ((stripos($userMessage, "haar")) !== false))
+        if((stripos($userMessage, "tarief") !== false) && ((stripos($userMessage, "haar") !== false))
 
 		{
 			$message = "Haar: 20 Euro ";
@@ -284,7 +284,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
         }
 
-        else if (stripos($userMessage, "tarief") !== false)
+        else (stripos($userMessage, "tarief") !== false)
 
 		{
 			$message = "Haar: 20 Euro\nFacemask: 30 Euro\nMassage: 15 Euro";
