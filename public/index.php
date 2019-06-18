@@ -266,7 +266,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
         if(stripos($userMessage, "locatie") !== false)
 		{
-			$message = "Je kunt ons vinden aan de Stationsweg 1A in Groningen."
+			$message = "Je kunt ons vinden aan de Stationsweg 1A in Groningen.";
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->pushMessage($senderUserId, $textMessageBuilder);
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
